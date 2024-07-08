@@ -1,44 +1,43 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <img src="assets\icons\badge3d.svg " alt="Logo" style="width: 50px;">
-    todo3D
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<app-navbar></app-navbar>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/inicio">Inicio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/productos">Productos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/contacto">Contacto</a>
-      </li>
-    </ul>
+<style>
+  .banner-container {
+    background-image: url('assets/images/banner.webp');
+    background-size: cover;
+    /* Ajusta el tamaño de la imagen */
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 300px;
+    /* Centra la imagen */
+    max-height: 300px;
+    /* Limita la altura del contenedor */
+  }
+</style>
+
+<div class="row justify-content-center">
+  <div class="banner-container col-11">
   </div>
-</nav>
+</div>
 
 
-<div class="row">
-  <div class="col-md-4 mb-4" *ngFor="let producto of listaProductos.slice(0, 3)">
-    <div class="card">
-      <img src="{{ producto.id }}.jpg" class="card-img-top" alt="Imagen del producto">
-      <div class="card-body">
-        <h5 class="card-title">{{ producto.nombre }}</h5>
-        <p class="card-text">{{ producto.descripcion }}</p>
-        <ul>
-          <li>Precio: {{ producto.precio }}</li>
-          <li>Dimensiones: {{ producto.dimensionx }} x {{ producto.dimensiony }}</li>
-          <li>Material: {{ producto.material }}</li>
-          <li>Relleno: {{ producto.relleno }}</li>
-          <li>Low Poly: {{ producto.lowpolly ? 'Sí' : 'No' }}</li>
-        </ul>
+<div class="container-fluid">
+  <div class="row mt-3">
+    <div class="col-md-4 mb-4" *ngFor="let producto of listaProductos.slice(0, 3)">
+      <div class="card"
+        style="background-image: url('assets/images/{{producto.id}}.webp'); background-size: cover; background-repeat: no-repeat; background-position: center; height: 300px;">
+        <div class="card-body" style="background-color: rgba(255, 255, 255, 0.6)">
+          <h5 class="card-title">{{ producto.nombre }}</h5>
+          <p class="card-text">{{ producto.descripcion }}</p>
+          <ul>
+            <li>Precio: {{ producto.precio }}</li>
+            <li>Dimensiones: {{ producto.dimensionx }} x {{ producto.dimensiony }}</li>
+            <li>Material: {{ producto.material }}</li>
+            <li>Relleno: {{ producto.relleno }}</li>
+            <li>Low Poly: {{ producto.lowpolly ? 'Sí' : 'No' }}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<app-footer></app-footer>

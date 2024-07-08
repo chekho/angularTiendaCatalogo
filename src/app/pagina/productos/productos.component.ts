@@ -10,6 +10,7 @@ import { ApiService } from '../../services/api.service';
 export class ProductosComponent {
   listaProductos: producto[] = [];
   filtroNombre: string = '';
+  filtroLowpolly: boolean | '' = ''; // Nueva propiedad para el filtro de lowpolly
 
   isResultLoaded = false;
 
@@ -18,9 +19,15 @@ export class ProductosComponent {
   }
 
   get productosFiltrados(): producto[] {
-    return this.listaProductos.filter((producto) =>
-      producto.nombre.toLowerCase().includes(this.filtroNombre.toLowerCase())
-    );
+    return this.listaProductos
+      .filter((producto) =>
+        producto.nombre.toLowerCase().includes(this.filtroNombre.toLowerCase())
+      )
+      .filter((producto) =>
+        this.filtroLowpolly === ''
+          ? true
+          : producto.lowpolly === this.filtroLowpolly
+      );
   }
 
   obtenerProducto() {

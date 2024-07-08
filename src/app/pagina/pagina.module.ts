@@ -6,9 +6,13 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FormularioComponent } from './formulario/formulario.component';
+import { AboutComponent } from './about/about.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [InicioComponent, ProductosComponent, ContactoComponent],
+  declarations: [InicioComponent, ProductosComponent, ContactoComponent, NavbarComponent, FormularioComponent, AboutComponent, FooterComponent],
   imports: [CommonModule, HttpClientModule, FormsModule, RouterLink],
   exports: [InicioComponent, ProductosComponent, ContactoComponent],
 })
