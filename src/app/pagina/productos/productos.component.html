@@ -1,0 +1,20 @@
+<input type="text" [(ngModel)]="filtroNombre" placeholder="Buscar por nombre">
+
+<div class="row">
+  <div class="col-md-4 mb-4" *ngFor="let producto of productosFiltrados">
+    <div class="card">
+      <img src="{{ producto.id }}.jpg" class="card-img-top" alt="Imagen del producto">
+      <div class="card-body">
+        <h5 class="card-title">{{ producto.nombre }}</h5>
+        <p class="card-text">{{ producto.descripcion }}</p>
+        <ul>
+          <li>Precio: {{ producto.precio }}</li>
+          <li>Dimensiones: {{ producto.dimensionx }} x {{ producto.dimensiony }}</li>
+          <li>Material: {{ producto.material }}</li>
+          <li>Relleno: {{ producto.relleno }}</li>
+          <li>Low Poly: {{ producto.lowpolly ? 'Sí' : 'No' }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
